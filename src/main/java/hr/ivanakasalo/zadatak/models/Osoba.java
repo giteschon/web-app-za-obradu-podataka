@@ -1,21 +1,27 @@
 package hr.ivanakasalo.zadatak.models;
 
+import hr.ivanakasalo.zadatak.podaci.mapiranje.Podatak;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  * Entitet Osoba
  */
 @Entity
-public class Osoba {
+public class Osoba implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Podatak(naziv = "Ime")
     private String ime;
+    @Podatak(naziv = "Prezime")
     private String prezime;
+    @Podatak(naziv = "DatumRodjenja")
     private LocalDate datumRodjenja;
 
     public String getIme() {
