@@ -12,29 +12,23 @@
 </head>
 
 <body>
-<div class="wrapper ">
-    <div>
-        <ul>
-            <li>
-                <a th:href="@{/generiranje}">
-                    <p>Generiranje datoteke</p>
-                </a>
-            </li>
-            <li>
-                <a th:href="@{/ucitavanje}">
-                    <p>Učitavanje datoteke</p>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div>
-        <!--Content-->
-        <div layout:fragment="content"></div>
-        <!--Content end-->
-    </div>
+<!--Navigation-->
+<nav>
+    <span>Web aplikacija za obradu datoteka (Java)</span>
 
-</div>
 
+    <ul>
+        <li><a th:href="@{/generiranje}">Generiranje datoteke</a></li>
+
+        <li><a th:href="@{/ucitavanje}">Učitavanje datoteke</a></li>
+    </ul>
+
+</nav>
+<!--Navigation end-->
+
+<!--Content-->
+<div layout:fragment="content" class="content"></div>
+<!--Content end-->
 </body>
 
 </html>

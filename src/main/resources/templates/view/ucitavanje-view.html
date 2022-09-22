@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-
-<html lang="en"
+<html lang="hr"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/master-layout}">
+      layout:decorate="~{layout/master-layout}" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Učitavanje datoteke</title>
 </head>
+
 <body>
-
 <div layout:fragment="content">
-  <p>test</p>
-</div>
+    <form method="POST" action="ucitavanje" enctype="multipart/form-data">
+        <h3>Učitavanje csv datoteke</h3>
+        <input type="file" name="file" accept=".csv">
+        <button type="submit">Učitaj</button>
+    </form>
 
+    <table>
+        <thead>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Datum rođenja</th>
+        </thead>
+
+        <tbody>
+        <tr th:each="o:${osobe}">
+            <td th:text="${o.ime}"></td>
+            <td th:text="${o.prezime}"></td>
+            <td th:text="${#temporals.format(o.datumRodjenja, 'dd.MM.yyyy.')}"/>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
 </body>
 </html>
