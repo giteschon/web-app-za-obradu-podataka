@@ -3,9 +3,10 @@
     --layout-padding: 2rem;
     --primary-color: #1065c0;
     --color-on-primary: white;
-    --primary-color-darker: #0747a1;
-    --background-color: #efefef;
-    --background-darker: #d0d0d0;
+    --primary-color-darker: #1f59aa;
+    --background-color:#f2f5fa;
+    --background-darker: #e6ecf5;
+    --text-color:#444;
 }
 
 body,
@@ -15,6 +16,7 @@ width:100%;
     margin: 0;
     padding: 0;
     font: 16px "Verdana", "Helvetica Neue", Helvetica;
+    color:var(--text-color);
     scroll-margin-top: calc(var(--nav-height) + var(--layout-padding));
     background: var(--background-color);
 }
@@ -77,7 +79,7 @@ table {
 }
 
 th {
-    background-color: var(--primary-color-darker);
+    background-color: var(--primary-color);
     color:var(--color-on-primary);
     height:2rem;
     font-weight:500;
@@ -87,6 +89,12 @@ tr{
 height:26px;
 }
 
-tr:nth-child(odd) {
+td,
+th{
+padding: 0 0.5rem;
+text-align:left;
+}
+
+tr:nth-child(even) {
     background-color: var(--background-darker);
 }

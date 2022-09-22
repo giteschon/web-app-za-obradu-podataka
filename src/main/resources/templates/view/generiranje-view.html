@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="hr"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master-layout}">
+<head>
+    <title>Generiranje datoteke</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <h2>Generiranje datoteke</h2>
+
+    <form method="post" action="/generiranje">
+        <label for="numBrojRedaka">Broj redaka</label>
+        <input type="number" id="numBrojRedaka" min="15" max="2000" value="100">
+        <button type="submit">Generiraj</button>
+    </form>
+</div>
+</body>
+</html>
