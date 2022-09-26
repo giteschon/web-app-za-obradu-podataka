@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CsvMapiranje<T> {
-    public static String DELIMITER = ";";
+    public static final String DELIMITER = ";";
 
-    private Class<T> clazz;
+    private final Class<T> clazz;
 
     public CsvMapiranje(Class<T> clazz) {
         this.clazz = clazz;
