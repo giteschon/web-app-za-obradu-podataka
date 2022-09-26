@@ -18,9 +18,11 @@
 
 
     <ul>
-        <li><a th:href="@{/generiranje}">Generiranje datoteke</a></li>
+        <li th:classappend="${#request.getServletPath() == '/generiranje' ? 'active': ''}"><a th:href="@{/generiranje}">Generiranje
+            datoteke</a></li>
 
-        <li><a th:href="@{/ucitavanje}">Učitavanje datoteke</a></li>
+        <li th:classappend="${#request.getServletPath() == '/ucitavanje' ? 'active': ''}"><a th:href="@{/ucitavanje}">Učitavanje
+            datoteke</a></li>
     </ul>
 
 </nav>

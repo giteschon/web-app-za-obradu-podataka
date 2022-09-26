@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap');
+
 :root {
     --nav-height: 48px;
     --layout-padding: 2rem;
@@ -15,7 +17,8 @@ height:100%;
 width:100%;
     margin: 0;
     padding: 0;
-    font: 16px "Verdana", "Helvetica Neue", Helvetica;
+    font-size: 16px;
+    font-family: 'Inter Tight', sans-serif;
     color:var(--text-color);
     scroll-margin-top: calc(var(--nav-height) + var(--layout-padding));
     background: var(--background-color);
@@ -31,6 +34,9 @@ nav {
     display: grid;
     grid-template-columns: 200px auto;
     align-items:center;
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(135,137,138,0.55);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(135,137,138,0.55);
+    box-shadow: 0px 2px 4px 0px rgba(135,137,138,0.55);
 }
 
 nav span {
@@ -72,6 +78,11 @@ nav ul li:hover {
     background-color: var(--primary-color-darker);
 }
 
+.active{
+  border-bottom: 2px solid var(--color-on-primary);
+  height:calc(var(--nav-height) - 2px);
+}
+
 table {
     width: 100%;
    border-spacing:0;
@@ -97,4 +108,45 @@ text-align:left;
 
 tr:nth-child(even) {
     background-color: var(--background-darker);
+}
+
+.file-wrapper{
+display:flex;
+align-items:center;
+column-gap:2rem;
+}
+
+button,
+.file-chooser{
+ border: 1px solid var(--primary-color);
+ border-radius:4px;
+  font-size:1rem;
+    padding: 4px 8px;
+    text-align:center;
+}
+
+button{
+min-width: 150px;
+ background: var(--primary-color);
+color:var(--color-on-primary);
+ height:40px;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file-chooser{
+    display: inline-block;
+    cursor: pointer;
+    height:30px;
+    width:150px;
+    line-height:28px;
 }

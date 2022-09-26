@@ -9,9 +9,17 @@
 <body>
 <div layout:fragment="content">
     <form method="POST" action="ucitavanje" enctype="multipart/form-data">
-        <h3>Učitavanje csv datoteke</h3>
-        <input type="file" name="file" accept=".csv">
-        <button type="submit">Učitaj</button>
+        <h3>Učitavanje .csv datoteke</h3>
+
+        <div class="file-wrapper">
+            <label for="file" class="file-chooser">
+                <input type="file" name="file" id="file" accept=".csv" onchange="enableButton(event)">
+                Odaberi datoteku
+            </label>
+            <span id="filename"></span>
+
+            <button type="submit" id="btnUcitaj" disabled>Učitaj</button>
+        </div>
     </form>
 
     <table>
@@ -29,6 +37,14 @@
         </tr>
         </tbody>
     </table>
+
+    <script>
+        function enableButton(e){
+        document.getElementById("filename").innerHTML=e.target.files[0].name;
+        document.getElementById("btnUcitaj").disabled=false;
+        }
+
+    </script>
 
 </div>
 </body>
