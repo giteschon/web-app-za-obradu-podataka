@@ -33,6 +33,11 @@ public class MainController {
         return "redirect:/ucitavanje";
     }
 
+    /**
+     * Dohvat svih podataka iz baze.
+     *
+     * @return
+     */
     @GetMapping("ucitavanje")
     public ModelAndView ucitavanjeDatoteke() {
         ModelAndView modelAndView = new ModelAndView();
@@ -42,22 +47,33 @@ public class MainController {
         return modelAndView;
     }
 
+    /**
+     * Spremanje podataka iz datoteke u bazu.
+     *
+     * @param file
+     * @return
+     */
     @PostMapping("ucitavanje")
     public String ucitajDatoteku(@RequestParam MultipartFile file) {
         service.spremiOsobe(file);
         return "redirect:/ucitavanje";
     }
 
+
     @GetMapping("generiranje")
     public String generiranjeCsvDatoteke() {
-
         return "view/generiranje-view.html";
     }
 
 
+    /**
+     * Preuzimanje generirane datoteke.
+     *
+     * @return
+     */
     @PostMapping("generiranje")
     @ResponseBody
-    public ResponseEntity<byte[]> getInvoice() {
+    public ResponseEntity<byte[]> spremiDatoteku() {
         final HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"podaci.csv\"");
         headers.add(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, HttpHeaders.CONTENT_DISPOSITION);

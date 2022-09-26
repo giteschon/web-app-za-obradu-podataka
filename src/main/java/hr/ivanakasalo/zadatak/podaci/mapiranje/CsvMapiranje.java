@@ -18,8 +18,10 @@ public class CsvMapiranje<T> {
     }
 
     /**
-     * @param list
-     * @return
+     * Od prvog zapisa priprema nazive kojima određuje redoslijed postavljanja vrijednosti polja klase <T>.
+     *
+     * @param list tekstualna lista u kojoj su redci pročitane datoteke.
+     * @return List<T>
      */
     public List<T> pripremiPodatke(List<String> list) {
         String[] nazivi = pripremiNazive(list.get(0).split(DELIMITER));
@@ -35,7 +37,7 @@ public class CsvMapiranje<T> {
     }
 
     /**
-     * Postavljanje objekta podacima iz datoeke
+     * Postavljanje objekta podacima iz datoteke
      *
      * @param data   - jedan redak u CSV datoteci, odvojen delimiterom i razdvojen u polje
      * @param nazivi - nazivi polja u koje je potrebno sprmiti podatak za objekt

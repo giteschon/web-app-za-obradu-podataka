@@ -29,9 +29,15 @@ public class OsobaService extends AbstractCrudService<Osoba> {
         return repository.findAll(Sort.by("prezime", "ime"));
     }
 
+    /**
+     * Čitanje csv datoteke, mapiranje polja i spremanje u bazu.
+     *
+     * @param file
+     */
     public void spremiOsobe(MultipartFile file) {
         try (InputStream is = file.getInputStream();
              BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
+
             List<String> list = reader.lines().collect(Collectors.toCollection(ArrayList::new));
             if (!list.isEmpty()) {
                 CsvMapiranje<Osoba> csvMapiranje = new CsvMapiranje<>(Osoba.class);

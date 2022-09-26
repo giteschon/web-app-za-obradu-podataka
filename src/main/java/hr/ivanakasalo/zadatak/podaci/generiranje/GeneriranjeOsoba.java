@@ -8,9 +8,15 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
 
+/**
+ * Pomoćna klasa za generiranje datoteke s podacima Ime, Prezime i DatumRodjenja.
+ * Imena i prezimena se nasumično generiraju iz unaprijed definiranih listi.
+ * DatumRodjenja se generira nasumično u periodu od 1960 do trenutne godine.
+ */
 public class GeneriranjeOsoba {
 
     private static final String[] imena = {"Katarina",
@@ -23,9 +29,11 @@ public class GeneriranjeOsoba {
             "Zelenbaba", "Ujdur", "Grgurić", "Bagarić", "Jurčević", "Vergić", "Ibrahimbegović", "Kvočić", "Ljubas"};
 
     private final Random random;
+    private final int trenutnaGodina;
 
     public GeneriranjeOsoba() {
         this.random = new Random();
+        trenutnaGodina = LocalDate.now().getYear();
     }
 
     public ByteArrayOutputStream generiraj(int brojRedaka) {
@@ -91,7 +99,7 @@ public class GeneriranjeOsoba {
      * @return
      */
     private String generirajDatum() {
-        int godina = random.nextInt(1960, 2022);
+        int godina = random.nextInt(1960, trenutnaGodina);
         int mjesec = random.nextInt(1, 12);
         Month m = Month.of(mjesec);
         int dan = random.nextInt(1, m.maxLength());
