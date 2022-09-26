@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,7 +37,7 @@ public class OsobaService extends AbstractCrudService<Osoba> {
      */
     public void spremiOsobe(MultipartFile file) {
         try (InputStream is = file.getInputStream();
-             BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
+             BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
 
             List<String> list = reader.lines().collect(Collectors.toCollection(ArrayList::new));
             if (!list.isEmpty()) {
